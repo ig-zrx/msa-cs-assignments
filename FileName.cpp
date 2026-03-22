@@ -1,33 +1,99 @@
-#include<iostream> 
+#include<iostream>
 using namespace std;
 void main()
 {
-	int pos;
-	int x[50]; 
-	for (int i = 0; i < 50; i++)
+	char x[100];
+	gets_s(x);
+	int selection;
+	cin >> selection;
+	int ct = 0;
+	float ct2 = 1;
+	int max = -999;
+	float avg;
+	int min = 999;
+	if (selection == 1)
 	{
-		cin >> x[i];		
-	}
-	for (int i = 0; i < 50; i++)
-	{
-		int min = 9999;
-
-		for (int j = i; j < 50; j++)
+		for (int i = 0; x[i] != '\0'; i++)
 		{
-			if (x[j] < min)
+			if (x[i] != ' ')
 			{
-				min = x[j];
-				pos = j;
+				ct++;
+				if (ct > max)
+				{
+					max = ct;
+
+
+				}
+			}
+			else
+			{
+				ct = 0;
 			}
 
+
+
 		}
-		int Z = x[i];
-		x[i] = x[pos];
-		x[pos] = Z;
+		cout << max;
+	}
+	if (selection == 2)
+	{
+		for (int i = 0; x[i] != '\0'; i++)
+		{
+			if (x[i] != ' ')
+			{
+				ct++;
+
+			}
+			else
+			{
+				if (ct < min)
+				{
+					min = ct;
+
+
+				}
+			
+				ct = 0;
+			}
+
+
+
+		}
+		if (ct < min)
+		{
+			min = ct;
+
+		}
+		cout << min;
+
+
+
+
+
+
 
 
 	}
+
+
+	if (selection == 3)
+	{
+		for (int i = 0; x[i] != '\0'; i++)
+		{
+			if (x[i] != ' ')
+			{
+				ct++;
+
+			}
+			if (x[i] == ' ')
+			{
+				ct2++;
+
+
+			}
+		}
+	
+		avg = ct / ct2;
+		cout << avg;
+	}
 }
-
-
-
